@@ -1167,6 +1167,18 @@ Possible extra rowspan handling
 		margin-left: auto;
 		margin-right: auto;
 	}
+	.overlarge {
+		/* Magic to create good table positioning:
+		   "content column" is 50ems wide at max; less on smaller screens.
+		   Extra space (after ToC + content) is empty on the right.
+
+		   1. When table < content column, centers table in column.
+		   2. When content < table < available, left-aligns.
+		   3. When table > available, fills available + scroll bar.
+		*/ 
+		display: grid;
+		grid-template-columns: minmax(0, 50em);
+	}
 	.overlarge > table {
 		/* limit preferred width of table */
 		max-width: 50em;
@@ -1176,7 +1188,6 @@ Possible extra rowspan handling
 
 	@media (min-width: 55em) {
 		.overlarge {
-			margin-left: calc(13px + 26.5rem - 50vw);
 			margin-right: calc(13px + 26.5rem - 50vw);
 			max-width: none;
 		}
@@ -1184,14 +1195,12 @@ Possible extra rowspan handling
 	@media screen and (min-width: 78em) {
 		body:not(.toc-inline) .overlarge {
 			/* 30.5em body padding 50em content area */
-			margin-left: calc(40em - 50vw) !important;
 			margin-right: calc(40em - 50vw) !important;
 		}
 	}
 	@media screen and (min-width: 90em) {
 		body:not(.toc-inline) .overlarge {
 			/* 4em html margin 30.5em body padding 50em content area */
-			margin-left: 0 !important;
 			margin-right: calc(84.5em - 100vw) !important;
 		}
 	}
@@ -1213,7 +1222,7 @@ Possible extra rowspan handling
 	}
 </style>
   <link href="https://www.w3.org/StyleSheets/TR/2016/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version c2a4ab239714a7c0374d0c7ad8cb001030becba3" name="generator">
+  <meta content="Bikeshed version 8bc2fccb49a45a0af18c5e75ce18049d75f824b6" name="generator">
   <link href="https://wicg.github.io/custom-state-pseudo-class/" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1461,13 +1470,14 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Custom State Pseudo Class</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2019-12-12">12 December 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2020-01-30">30 January 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://wicg.github.io/custom-state-pseudo-class/">https://wicg.github.io/custom-state-pseudo-class/</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/WICG/custom-state-pseudo-class/issues/">GitHub</a>
+     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:tkent@google.com">Kent Tamura</a> (<a class="p-org org" href="https://www.google.com/">Google</a>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:rakina@google.com">Rakina Zata Amni</a> (<a class="p-org org" href="https://www.google.com/">Google</a>)
@@ -1475,7 +1485,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </dl>
    </div>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 the Contributors to the Custom State Pseudo Class Specification, published by the <a href="https://www.w3.org/community/wicg/">Web Platform Incubator Community Group</a> under the <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>.
+   <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2020 the Contributors to the Custom State Pseudo Class Specification, published by the <a href="https://www.w3.org/community/wicg/">Web Platform Incubator Community Group</a> under the <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>.
 A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/">summary</a> is available. </p>
    <hr title="Separator for header">
   </div>
@@ -1526,6 +1536,7 @@ A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
      </ol>
     <li><a href="#idl-index"><span class="secno"></span> <span class="content">IDL Index</span></a>
+    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
@@ -1615,6 +1626,7 @@ customElements<c- p>.</c->define<c- p>(</c-><c- t>'question-box'</c-><c- p>,</c-
    <h2 class="heading settled" data-level="2" id="exposing"><span class="secno">2. </span><span class="content">Exposing custom element states</span><a class="self-link" href="#exposing"></a></h2>
    <p>Each <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/custom-elements.html#autonomous-custom-element" id="ref-for-autonomous-custom-element">autonomous custom element</a> has <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="states-token-list">states token list</dfn>, a <a data-link-type="dfn" href="#non-attribute-domtokenlist" id="ref-for-non-attribute-domtokenlist">non-attribute <code>DOMTokenList</code></a> object associated with the custom
 element, and initially associated with an empty <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ordered-set" id="ref-for-ordered-set">set</a> of strings.</p>
+   <p class="issue" id="issue-172e10b8"><a class="self-link" href="#issue-172e10b8"></a> Support customized built-in elements. <a href="https://github.com/whatwg/html/issues/5166">&lt;https://github.com/whatwg/html/issues/5166></a></p>
 <pre class="idl highlight def"><c- b>partial</c-> <c- b>interface</c-> <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/custom-elements.html#elementinternals" id="ref-for-elementinternals①"><c- g>ElementInternals</c-></a> {
   [<a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SameObject" id="ref-for-SameObject"><c- g>SameObject</c-></a>, <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#PutForwards" id="ref-for-PutForwards"><c- g>PutForwards</c-></a>=<a class="idl-code" data-link-type="attribute" href="https://dom.spec.whatwg.org/#dom-domtokenlist-value" id="ref-for-dom-domtokenlist-value"><c- n>value</c-></a>] <c- b>readonly</c-> <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#domtokenlist" id="ref-for-domtokenlist"><c- n>DOMTokenList</c-></a> <dfn class="dfn-paneled idl-code" data-dfn-for="ElementInternals" data-dfn-type="attribute" data-export data-readonly data-type="DOMTokenList" id="dom-elementinternals-states"><code><c- g>states</c-></code></dfn>;
 };
@@ -1634,6 +1646,7 @@ states. For example, a state called <code>readyState</code> with <code>"loading"
 <c- c1>// addition to remove() and add().</c->
 <c- c1>// this._internals.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states④"><c- c1>states</c-></a></code><c- c1> = "complete";</c->
 </pre>
+    <p class="issue" id="issue-8463f5b0"><a class="self-link" href="#issue-8463f5b0"></a> Support non-boolean states. <a href="https://github.com/WICG/custom-state-pseudo-class/issues/4">&lt;https://github.com/WICG/custom-state-pseudo-class/issues/4></a></p>
    </div>
    <h3 class="heading settled" data-level="2.1" id="sec-non-attribute-domtokenlist"><span class="secno">2.1. </span><span class="content">Non-attribute <code>DOMTokenList</code></span><a class="self-link" href="#sec-non-attribute-domtokenlist"></a></h3>
    <p>This section defines a variant of <code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#domtokenlist" id="ref-for-domtokenlist①">DOMTokenList</a></code>, called <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="non-attribute-domtokenlist">non-attribute <code>DOMTokenList</code></dfn>. It is defined by <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> as
@@ -2068,6 +2081,11 @@ and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
 };
 
 </pre>
+  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+  <div style="counter-reset:issue">
+   <div class="issue"> Support customized built-in elements. <a href="https://github.com/whatwg/html/issues/5166">&lt;https://github.com/whatwg/html/issues/5166></a><a href="#issue-172e10b8"> ↵ </a></div>
+   <div class="issue"> Support non-boolean states. <a href="https://github.com/WICG/custom-state-pseudo-class/issues/4">&lt;https://github.com/WICG/custom-state-pseudo-class/issues/4></a><a href="#issue-8463f5b0"> ↵ </a></div>
+  </div>
   <aside class="dfn-panel" data-for="states-token-list">
    <b><a href="#states-token-list">#states-token-list</a></b><b>Referenced in:</b>
    <ul>
