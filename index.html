@@ -1222,93 +1222,8 @@ Possible extra rowspan handling
 	}
 </style>
   <link href="https://www.w3.org/StyleSheets/TR/2016/cg-draft" rel="stylesheet">
-  <meta content="Bikeshed version 8bc2fccb49a45a0af18c5e75ce18049d75f824b6" name="generator">
+  <meta content="Bikeshed version e3f9ab1a, updated Fri Apr 24 17:43:54 2020 -0700" name="generator">
   <link href="https://wicg.github.io/custom-state-pseudo-class/" rel="canonical">
-<style>/* style-md-lists */
-
-/* This is a weird hack for me not yet following the commonmark spec
-   regarding paragraph and lists. */
-[data-md] > :first-child {
-    margin-top: 0;
-}
-[data-md] > :last-child {
-    margin-bottom: 0;
-}</style>
-<style>/* style-selflinks */
-
-.heading, .issue, .note, .example, li, dt {
-    position: relative;
-}
-a.self-link {
-    position: absolute;
-    top: 0;
-    left: calc(-1 * (3.5rem - 26px));
-    width: calc(3.5rem - 26px);
-    height: 2em;
-    text-align: center;
-    border: none;
-    transition: opacity .2s;
-    opacity: .5;
-}
-a.self-link:hover {
-    opacity: 1;
-}
-.heading > a.self-link {
-    font-size: 83%;
-}
-li > a.self-link {
-    left: calc(-1 * (3.5rem - 26px) - 2em);
-}
-dfn > a.self-link {
-    top: auto;
-    left: auto;
-    opacity: 0;
-    width: 1.5em;
-    height: 1.5em;
-    background: gray;
-    color: white;
-    font-style: normal;
-    transition: opacity .2s, background-color .2s, color .2s;
-}
-dfn:hover > a.self-link {
-    opacity: 1;
-}
-dfn > a.self-link:hover {
-    color: black;
-}
-
-a.self-link::before            { content: "¶"; }
-.heading > a.self-link::before { content: "§"; }
-dfn > a.self-link::before      { content: "#"; }</style>
-<style>/* style-counters */
-
-body {
-    counter-reset: example figure issue;
-}
-.issue {
-    counter-increment: issue;
-}
-.issue:not(.no-marker)::before {
-    content: "Issue " counter(issue);
-}
-
-.example {
-    counter-increment: example;
-}
-.example:not(.no-marker)::before {
-    content: "Example " counter(example);
-}
-.invalid.example:not(.no-marker)::before,
-.illegal.example:not(.no-marker)::before {
-    content: "Invalid Example" counter(example);
-}
-
-figcaption {
-    counter-increment: figure;
-}
-figcaption:not(.no-marker)::before {
-    content: "Figure " counter(figure) " ";
-}</style>
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1371,6 +1286,35 @@ pre .property::before, pre .property::after {
 [data-link-type=biblio] {
     white-space: pre;
 }</style>
+<style>/* style-counters */
+
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
+}
+
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}</style>
 <style>/* style-dfn-panel */
 
 .dfn-panel {
@@ -1408,6 +1352,62 @@ pre .property::before, pre .property::after {
 
 .dfn-paneled { cursor: pointer; }
 </style>
+<style>/* style-md-lists */
+
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}</style>
+<style>/* style-selflinks */
+
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: gray;
+    color: white;
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: black;
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }</style>
 <style>/* style-syntax-highlighting */
 pre.idl.highlight { color: #708090; }
 .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
@@ -1470,7 +1470,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Custom State Pseudo Class</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2020-01-30">30 January 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Community Group Report, <time class="dt-updated" datetime="2020-05-11">11 May 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1493,8 +1493,9 @@ A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This specification defines a way to expose custom element’s internal
 
-    states, and defines the <a class="css" data-link-type="maybe" href="#selectordef-state" id="ref-for-selectordef-state">:state()</a> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class">pseudo-class</a> matching to a custom
-    element exposing a state. This specification is intended to be merged to <a data-link-type="biblio" href="#biblio-dom">[DOM]</a>, <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, and <a data-link-type="biblio" href="#biblio-selectors-4">[selectors-4]</a> in the future.</p>
+    states, and defines the <a data-link-type="dfn" href="#custom-state-pseudo-class" id="ref-for-custom-state-pseudo-class">custom state pseudo class</a> <span class="css">:--foo</span> matching
+    to a custom element exposing a state. This specification is intended to be
+    merged to <a data-link-type="biblio" href="#biblio-dom">[DOM]</a>, <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, and <a data-link-type="biblio" href="#biblio-selectors-4">[selectors-4]</a> in the future.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <h2 class="no-num no-toc no-ref heading settled" id="status"><span class="content">Status of this document</span></h2>
@@ -1545,14 +1546,14 @@ A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/
    <p>Build-in elements provided by user agents have certain “states” that can change
 over time depending on user interaction and other factors, and are exposed to
 web authors through pseudo classes. For example, some form controls have the
-“invalid” state, which is exposed through the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/selectors-4/#invalid-pseudo" id="ref-for-invalid-pseudo">:invalid</a> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class①">pseudo-class</a>.</p>
+“invalid” state, which is exposed through the <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/selectors-4/#invalid-pseudo" id="ref-for-invalid-pseudo">:invalid</a> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class">pseudo-class</a>.</p>
    <p>Like built-in elements, <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element" id="ref-for-custom-element">custom elements</a> can have various states to be in too,
 and <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element" id="ref-for-custom-element①">custom element</a> authors want to expose these states in a similar fashion
 as the built-in elements.</p>
    <h3 class="heading settled" data-level="1.2" id="solution"><span class="secno">1.2. </span><span class="content">Solution</span><a class="self-link" href="#solution"></a></h3>
    <p>This specification defines an API to inform <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element" id="ref-for-custom-element②">custom element</a>'s states to the
-user agent, and a <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class②">pseudo-class</a> to select elements with specific states.
-The former is the <code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states">states</a></code> IDL attribute of <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/custom-elements.html#elementinternals" id="ref-for-elementinternals">ElementInternals</a></code>, and the latter is the <a class="css" data-link-type="maybe" href="#selectordef-state" id="ref-for-selectordef-state①">:state()</a> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class③">pseudo-class</a>.</p>
+user agent, and a <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class①">pseudo-class</a> to select elements with specific states.
+The former is the <code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states">states</a></code> IDL attribute of <code class="idl"><a data-link-type="idl" href="https://html.spec.whatwg.org/multipage/custom-elements.html#elementinternals" id="ref-for-elementinternals">ElementInternals</a></code>, and the latter is the <a data-link-type="dfn" href="#custom-state-pseudo-class" id="ref-for-custom-state-pseudo-class①">custom state pseudo class</a>.</p>
    <div class="example" id="ex-intro">
     <a class="self-link" href="#ex-intro"></a> 
     <p>Assume that <code>LabeledCheckbox</code> doesn’t expose its "checked" state
@@ -1575,15 +1576,15 @@ via a content attribute.</p>
 <c- sb>         white-space: pre;</c->
 <c- sb>         font-family: monospace;</c->
 <c- sb>       }</c->
-<c- sb>       :host(:state(checked))::before { content: '[x]' }</c->
+<c- sb>       :host(:--checked)::before { content: '[x]' }</c->
 <c- sb>       &lt;/style></c->
 <c- sb>       &lt;slot>Label&lt;/slot>`</c-><c- p>;</c->
   <c- p>}</c->
 
-  get checked<c- p>()</c-> <c- p>{</c-> <c- k>return</c-> <c- k>this</c-><c- p>.</c->_internals<c- p>.</c->states<c- p>.</c->contains<c- p>(</c-><c- t>'checked'</c-><c- p>);</c-> <c- p>}</c->
+  get checked<c- p>()</c-> <c- p>{</c-> <c- k>return</c-> <c- k>this</c-><c- p>.</c->_internals<c- p>.</c->states<c- p>.</c->contains<c- p>(</c-><c- t>'--checked'</c-><c- p>);</c-> <c- p>}</c->
 
   set checked<c- p>(</c->flag<c- p>)</c-> <c- p>{</c->
-    <c- k>this</c-><c- p>.</c->_internals<c- p>.</c->states<c- p>.</c->toggle<c- p>(</c-><c- t>'checked'</c-><c- p>,</c-> <c- o>!!</c->flag<c- p>);</c->
+    <c- k>this</c-><c- p>.</c->_internals<c- p>.</c->states<c- p>.</c->toggle<c- p>(</c-><c- t>'--checked'</c-><c- p>,</c-> <c- o>!!</c->flag<c- p>);</c->
   <c- p>}</c->
 
   _onClick<c- p>(</c->event<c- p>)</c-> <c- p>{</c->
@@ -1596,7 +1597,7 @@ customElements<c- p>.</c->define<c- p>(</c-><c- t>'labeled-checkbox'</c-><c- p>,
 
 <c- p>&lt;</c-><c- f>style</c-><c- p>></c->
 <c- f>labeled-checkbox</c-> <c- p>{</c-> <c- k>border</c-><c- p>:</c-> <c- kc>dashed</c-> <c- kc>red</c-><c- p>;</c-> <c- p>}</c->
-<c- f>labeled-checkbox</c-><c- p>:</c-><c- nd>state</c-><c- o>(</c-><c- f>checked</c-><c- o>)</c-> <c- p>{</c-> <c- k>border</c-><c- p>:</c-> <c- kc>solid</c-><c- p>;</c-> <c- p>}</c->
+<c- f>labeled-checkbox</c-><c- p>:</c-><c- nd>--checked</c-> <c- p>{</c-> <c- k>border</c-><c- p>:</c-> <c- kc>solid</c-><c- p>;</c-> <c- p>}</c->
 <c- p>&lt;/</c-><c- f>style</c-><c- p>></c->
 
 <c- p>&lt;</c-><c- f>labeled-checkbox</c-><c- p>></c->You need to check this<c- p>&lt;/</c-><c- f>labeled-checkbox</c-><c- p>></c->
@@ -1616,7 +1617,7 @@ customElements<c- p>.</c->define<c- p>(</c-><c- t>'question-box'</c-><c- p>,</c-
 
 <c- p>&lt;</c-><c- f>style</c-><c- p>></c->
 <c- f>question-box</c-><c- p>::</c-><c- nd>part</c-><c- o>(</c-><c- f>checkbox</c-><c- o>)</c-> <c- p>{</c-> <c- k>color</c-><c- p>:</c-> <c- kc>red</c-><c- p>;</c-> <c- p>}</c->
-<c- f>question-box</c-><c- p>::</c-><c- nd>part</c-><c- o>(</c-><c- f>checkbox</c-><c- o>)</c-><c- p>:</c-><c- nd>state</c-><c- o>(</c-><c- f>checked</c-><c- o>)</c-> <c- p>{</c-> <c- k>color</c-><c- p>:</c-> <c- kc>green</c-><c- p>;</c-> <c- p>}</c->
+<c- f>question-box</c-><c- p>::</c-><c- nd>part</c-><c- o>(</c-><c- f>checkbox</c-><c- o>)</c-><c- p>:</c-><c- nd>--checked</c-> <c- p>{</c-> <c- k>color</c-><c- p>:</c-> <c- kc>green</c-><c- p>;</c-> <c- p>}</c->
 <c- p>&lt;/</c-><c- f>style</c-><c- p>></c->
 
 <c- p>&lt;</c-><c- f>question-box</c-><c- p>></c->Continue?<c- p>&lt;/</c-><c- f>question-box</c-><c- p>></c->
@@ -1637,14 +1638,14 @@ this’s <a href="http://html.spec.whatwg.org/C/#internals-target">target elemen
     <a class="self-link" href="#ex-non-boolean-state"></a> <a data-link-type="dfn" href="#states-token-list" id="ref-for-states-token-list①">States token list</a> can expose boolean states represented by
 existence/non-existence of string tokens. If an author wants to expose a state
 which can have three values, it can be converted to three exclusive boolean
-states. For example, a state called <code>readyState</code> with <code>"loading"</code>, <code>"interactive"</code>, and <code>"complete"</code> values can be mapped to three exclusive boolean states, <code>"loading"</code>, <code>"interactive"</code>, and <code>"complete"</code>. 
+states. For example, a state called <code>readyState</code> with <code>"loading"</code>, <code>"interactive"</code>, and <code>"complete"</code> values can be mapped to three exclusive boolean states, <code>"--loading"</code>, <code>"--interactive"</code>, and <code>"--complete"</code>. 
 <pre class="lang-js highlight"><c- c1>// Change the readyState from anything to "complete".</c->
 <c- k>this</c-><c- p>.</c->_readyState <c- o>=</c-> <c- u>"complete"</c-><c- p>;</c->
-<c- k>this</c-><c- p>.</c->_internals<c- p>.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states②">states</a></code><c- p>.</c-><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-domtokenlist-remove" id="ref-for-dom-domtokenlist-remove">remove</a></code><c- p>(</c-><c- u>"loading"</c-><c- p>,</c-> <c- u>"interactive"</c-><c- p>);</c->
-<c- k>this</c-><c- p>.</c->_internals<c- p>.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states③">states</a></code><c- p>.</c-><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-domtokenlist-add" id="ref-for-dom-domtokenlist-add">add</a></code><c- p>(</c-><c- u>"complete"</c-><c- p>);</c->
+<c- k>this</c-><c- p>.</c->_internals<c- p>.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states②">states</a></code><c- p>.</c-><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-domtokenlist-remove" id="ref-for-dom-domtokenlist-remove">remove</a></code><c- p>(</c-><c- u>"--loading"</c-><c- p>,</c-> <c- u>"--interactive"</c-><c- p>);</c->
+<c- k>this</c-><c- p>.</c->_internals<c- p>.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states③">states</a></code><c- p>.</c-><code class="idl"><a data-link-type="idl" href="https://dom.spec.whatwg.org/#dom-domtokenlist-add" id="ref-for-dom-domtokenlist-add">add</a></code><c- p>(</c-><c- u>"--complete"</c-><c- p>);</c->
 <c- c1>// If this has no states other than _readyState, the following also works in</c->
 <c- c1>// addition to remove() and add().</c->
-<c- c1>// this._internals.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states④"><c- c1>states</c-></a></code><c- c1> = "complete";</c->
+<c- c1>// this._internals.</c-><code class="idl"><a data-link-type="idl" href="#dom-elementinternals-states" id="ref-for-dom-elementinternals-states④"><c- c1>states</c-></a></code><c- c1> = "--complete";</c->
 </pre>
     <p class="issue" id="issue-8463f5b0"><a class="self-link" href="#issue-8463f5b0"></a> Support non-boolean states. <a href="https://github.com/WICG/custom-state-pseudo-class/issues/4">&lt;https://github.com/WICG/custom-state-pseudo-class/issues/4></a></p>
    </div>
@@ -1741,15 +1742,14 @@ value if this has attribute’s local name. Otherwise, it must set <a data-link-
      </blockquote>
    </ul>
    <h2 class="heading settled" data-level="3" id="selecting"><span class="secno">3. </span><span class="content">Selecting a custom element with a speicfic state</span><a class="self-link" href="#selecting"></a></h2>
-   <p>The <dfn class="dfn-paneled css" data-dfn-type="selector" data-export id="selectordef-state">:state()</dfn> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class④">pseudo-class</a> applies while an element has a
-certain state. "State" is a per-element information which can change over time
-depending on user interaction and other extrinsic factors.
-The <a class="css" data-link-type="maybe" href="#selectordef-state" id="ref-for-selectordef-state②">:state()</a> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class⑤">pseudo-classs</a> must have one <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-4/#typedef-ident" id="ref-for-typedef-ident">&lt;ident></a> argument, otherwise
-the selector is invalid.</p>
-   <p>The <a class="css" data-link-type="maybe" href="#selectordef-state" id="ref-for-selectordef-state③">:state()</a> <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class⑥">pseudo-class</a> must match any element that is an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/custom-elements.html#autonomous-custom-element" id="ref-for-autonomous-custom-element①">autonomous custom element</a> and whose <a data-link-type="dfn" href="#states-token-list" id="ref-for-states-token-list②">states token list</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-contain" id="ref-for-list-contain">contains</a> the specified <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-4/#typedef-ident" id="ref-for-typedef-ident①">&lt;ident></a>.</p>
-   <div class="example" id="ex-selector-logic"><a class="self-link" href="#ex-selector-logic"></a> <a class="css" data-link-type="maybe" href="#selectordef-state" id="ref-for-selectordef-state④">:state()</a> takes just one argument, and an element can expose multiple states.
-Authors can use <a class="css" data-link-type="maybe" href="#selectordef-state" id="ref-for-selectordef-state⑤">:state()</a> with logical <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class⑦">pseudo-classes</a> like <span class="css">x-foo:is(:state(state1), :state(state2))</span>, <span class="css">x-foo:not(:state(state2))</span>,
-and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
+   <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="custom-state-pseudo-class">custom state pseudo class</dfn> <span class="css">:--foo</span> is a <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class②">pseudo-class</a>,
+and applies while an element has a certain state. "State" is a per-element
+information which can change over time depending on user interaction and other
+extrinsic factors. The <a data-link-type="dfn" href="#custom-state-pseudo-class" id="ref-for-custom-state-pseudo-class②">custom state pseudo class</a> must start with <span class="css">:</span>,
+followed by one <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-4/#typedef-dashed-ident" id="ref-for-typedef-dashed-ident">&lt;dashed-ident></a>, otherwise the selector is invalid.</p>
+   <p>The <a data-link-type="dfn" href="#custom-state-pseudo-class" id="ref-for-custom-state-pseudo-class③">custom state pseudo class</a> must match any element that is an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/custom-elements.html#autonomous-custom-element" id="ref-for-autonomous-custom-element①">autonomous custom element</a> and whose <a data-link-type="dfn" href="#states-token-list" id="ref-for-states-token-list②">states token list</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-contain" id="ref-for-list-contain">contains</a> the specified <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-4/#typedef-dashed-ident" id="ref-for-typedef-dashed-ident①">&lt;dashed-ident></a>.</p>
+   <div class="example" id="ex-selector-logic"><a class="self-link" href="#ex-selector-logic"></a> A <a data-link-type="dfn" href="#custom-state-pseudo-class" id="ref-for-custom-state-pseudo-class④">custom state pseudo class</a> contains just one <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-4/#typedef-dashed-ident" id="ref-for-typedef-dashed-ident②">&lt;dashed-ident></a>, and an
+element can expose multiple states. Authors can use <a data-link-type="dfn" href="#custom-state-pseudo-class" id="ref-for-custom-state-pseudo-class⑤">custom state pseudo class</a> with logical <a data-link-type="dfn" href="https://drafts.csswg.org/selectors-4/#pseudo-class" id="ref-for-pseudo-class③">pseudo-classes</a> like <span class="css">x-foo:is(:--state1, :--state2)</span>, <span class="css">x-foo:not(:--state2)</span>, and <span class="css">x-foo:--state1:--state2</span>. </div>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -1900,15 +1900,15 @@ and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
+   <li><a href="#custom-state-pseudo-class">custom state pseudo class</a><span>, in §3</span>
    <li><a href="#non-attribute-domtokenlist">non-attribute DOMTokenList</a><span>, in §2.1</span>
-   <li><a href="#selectordef-state">:state()</a><span>, in §3</span>
    <li><a href="#dom-elementinternals-states">states</a><span>, in §2</span>
    <li><a href="#states-token-list">states token list</a><span>, in §2</span>
   </ul>
-  <aside class="dfn-panel" data-for="term-for-typedef-ident">
-   <a href="https://drafts.csswg.org/css-values-4/#typedef-ident">https://drafts.csswg.org/css-values-4/#typedef-ident</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-typedef-dashed-ident">
+   <a href="https://drafts.csswg.org/css-values-4/#typedef-dashed-ident">https://drafts.csswg.org/css-values-4/#typedef-dashed-ident</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-typedef-ident">3. Selecting a custom element with a speicfic state</a> <a href="#ref-for-typedef-ident①">(2)</a>
+    <li><a href="#ref-for-typedef-dashed-ident">3. Selecting a custom element with a speicfic state</a> <a href="#ref-for-typedef-dashed-ident①">(2)</a> <a href="#ref-for-typedef-dashed-ident②">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-domtokenlist">
@@ -1996,9 +1996,9 @@ and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
   <aside class="dfn-panel" data-for="term-for-pseudo-class">
    <a href="https://drafts.csswg.org/selectors-4/#pseudo-class">https://drafts.csswg.org/selectors-4/#pseudo-class</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-pseudo-class①">1.1. Motivation</a>
-    <li><a href="#ref-for-pseudo-class②">1.2. Solution</a> <a href="#ref-for-pseudo-class③">(2)</a>
-    <li><a href="#ref-for-pseudo-class④">3. Selecting a custom element with a speicfic state</a> <a href="#ref-for-pseudo-class⑤">(2)</a> <a href="#ref-for-pseudo-class⑥">(3)</a> <a href="#ref-for-pseudo-class⑦">(4)</a>
+    <li><a href="#ref-for-pseudo-class">1.1. Motivation</a>
+    <li><a href="#ref-for-pseudo-class①">1.2. Solution</a>
+    <li><a href="#ref-for-pseudo-class②">3. Selecting a custom element with a speicfic state</a> <a href="#ref-for-pseudo-class③">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-PutForwards">
@@ -2018,7 +2018,7 @@ and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
    <li>
     <a data-link-type="biblio">[css-values-4]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-typedef-ident" style="color:initial">&lt;ident></span>
+     <li><span class="dfn-paneled" id="term-for-typedef-dashed-ident" style="color:initial">&lt;dashed-ident></span>
     </ul>
    <li>
     <a data-link-type="biblio">[DOM]</a> defines the following terms:
@@ -2076,8 +2076,8 @@ and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
    <dd>Boris Zbarsky. <a href="https://heycam.github.io/webidl/">Web IDL</a>. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="idl-index"><span class="content">IDL Index</span><a class="self-link" href="#idl-index"></a></h2>
-<pre class="idl highlight def"><c- b>partial</c-> <c- b>interface</c-> <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/custom-elements.html#elementinternals" id="ref-for-elementinternals①①"><c- g>ElementInternals</c-></a> {
-  [<a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SameObject" id="ref-for-SameObject①"><c- g>SameObject</c-></a>, <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#PutForwards" id="ref-for-PutForwards①"><c- g>PutForwards</c-></a>=<a class="idl-code" data-link-type="attribute" href="https://dom.spec.whatwg.org/#dom-domtokenlist-value" id="ref-for-dom-domtokenlist-value①"><c- n>value</c-></a>] <c- b>readonly</c-> <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#domtokenlist" id="ref-for-domtokenlist①②"><c- n>DOMTokenList</c-></a> <a data-readonly data-type="DOMTokenList" href="#dom-elementinternals-states"><code><c- g>states</c-></code></a>;
+<pre class="idl highlight def"><c- b>partial</c-> <c- b>interface</c-> <a class="idl-code" data-link-type="interface" href="https://html.spec.whatwg.org/multipage/custom-elements.html#elementinternals"><c- g>ElementInternals</c-></a> {
+  [<a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SameObject"><c- g>SameObject</c-></a>, <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#PutForwards"><c- g>PutForwards</c-></a>=<a class="idl-code" data-link-type="attribute" href="https://dom.spec.whatwg.org/#dom-domtokenlist-value"><c- n>value</c-></a>] <c- b>readonly</c-> <c- b>attribute</c-> <a class="n" data-link-type="idl-name" href="https://dom.spec.whatwg.org/#domtokenlist"><c- n>DOMTokenList</c-></a> <a data-readonly data-type="DOMTokenList" href="#dom-elementinternals-states"><code><c- g>states</c-></code></a>;
 };
 
 </pre>
@@ -2107,11 +2107,11 @@ and <span class="css">x-foo:state(state1):state(state2)</span>. </div>
     <li><a href="#ref-for-non-attribute-domtokenlist①">2.1. Non-attribute DOMTokenList</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="selectordef-state">
-   <b><a href="#selectordef-state">#selectordef-state</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="custom-state-pseudo-class">
+   <b><a href="#custom-state-pseudo-class">#custom-state-pseudo-class</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-selectordef-state①">1.2. Solution</a>
-    <li><a href="#ref-for-selectordef-state②">3. Selecting a custom element with a speicfic state</a> <a href="#ref-for-selectordef-state③">(2)</a> <a href="#ref-for-selectordef-state④">(3)</a> <a href="#ref-for-selectordef-state⑤">(4)</a>
+    <li><a href="#ref-for-custom-state-pseudo-class①">1.2. Solution</a>
+    <li><a href="#ref-for-custom-state-pseudo-class②">3. Selecting a custom element with a speicfic state</a> <a href="#ref-for-custom-state-pseudo-class③">(2)</a> <a href="#ref-for-custom-state-pseudo-class④">(3)</a> <a href="#ref-for-custom-state-pseudo-class⑤">(4)</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
